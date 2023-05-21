@@ -1,0 +1,16 @@
+<div [hidden]="!show" class="container-address">
+  <div class="auto-suggestion" (click)="chooseAdress(adress.properties.label)" *ngFor="let adress of departure">
+    <p class="adress-item">{{adress.properties.label}} </p>
+  </div>
+</div>
+
+<form *ngIf="showAddressBar" class="addressBarForm" (ngSubmit)="submit()">
+  <div class="inputBloc">
+    <img class="icon star" src="assets/popup-message/star.svg" />
+    <input class="fieldAddress" name="searchAddress" type="text" placeholder="Ou allez-vous ?" autocomplete="yes"
+      (keyup)="eventInput($event)" value="{{searchAddress}}">
+    <button class="btn-search" type="submit">
+      <img class="icon search" src="assets/addressBar/search.svg" />
+    </button>
+  </div>
+</form>

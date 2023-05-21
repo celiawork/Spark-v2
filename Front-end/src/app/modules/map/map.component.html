@@ -1,0 +1,12 @@
+<!-- Interactive background map display -->
+<div class="map-container" leaflet
+     [leafletOptions]="options"
+     (leafletMapReady)="onMapReady($event)"
+    >
+</div>
+<!-- <button class="c-btn-1-btn" (click)="endNavigation()"></button> -->
+<app-bottom-popup [endNavigation]="navigationState" [currentUser]="currentUser"></app-bottom-popup>
+<app-bottom-popup-interactive><app-bottom-popup-interactive>
+
+  
+<app-itinerary [currentUser]="currentUser"></app-itinerary>

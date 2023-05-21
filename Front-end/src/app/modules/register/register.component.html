@@ -1,0 +1,91 @@
+<div class="col-12" style="padding:0 ;">
+	<div class="compo-register ">
+		<h1 class="py-4 text-right mr-3"><span>S</span>park</h1>
+		<div class="form-register d-flex align-items-center justify-content-center">
+
+			<form class="form-signup" [formGroup]="form" (ngSubmit)="registerUser()">
+				<h2 class="h3 mb-5 font-weight-normal text-center register100-form-title">{{title}}</h2>
+
+				<div *ngIf="!isSuccessful; else msgconfimation">
+					<div class="msg-error text-center">
+						{{this.msgerrors}}
+					</div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100 form-control" type="text" name="lastname" placeholder="Nom"
+							formControlName="lastname" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)">
+						<div class="msg-error text-center" *ngIf="lastname?.errors?.['required']">
+							Renseigner votre nom
+						</div>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100 form-control" type="text" name="firstname" placeholder="Prénom"
+							formControlName="firstname" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched)">
+						<div class="msg-error text-center" *ngIf="firstname?.errors?.['required']">
+							Renseigner votre prénom
+						</div>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100 form-control" type="email" name="email" placeholder="Email"
+							formControlName="username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+						<div class="msg-error text-center" *ngIf="username?.errors?.['pattern']">
+							Email non valide
+						</div>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100 form-control" type="password" name="pass" placeholder="Mot de passe"
+							formControlName="password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+						<div class="msg-error text-center" *ngIf="password?.errors?.['required']">
+							Le mot de passe doit contenir 8 caractères
+						</div>
+						<div class="msg-error text-center" *ngIf="password?.errors?.['minlength']">
+							 8 caractères minimum
+						</div>
+					</div>
+					<div class="container-c-btn-1-btn mt-5">
+						<button class="c-btn-1-btn" type="submit">
+							S'inscrire
+						</button>
+					</div>
+					<p class="text-custom text-center mt-3" routerLink="/login">Déjà un compte ?</p>
+				</div>
+			</form>
+
+			<ng-template #msgconfimation>
+				<p class="text-center px-5">Un lien de confirmation a été envoyé par email <br> <a
+						class="text-custom text-center" routerLink="/login">Connexion</a></p>
+			</ng-template>
+
+		</div>
+	</div>
+</div>

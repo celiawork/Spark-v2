@@ -1,0 +1,6 @@
+<div *ngIf="endNavigation" class="container-popup">
+  <app-favoriteMessage></app-favoriteMessage>
+  <div class="container-message py-2">
+    <app-messageStandard [parking]="parking" [vehicle]="vehicle" [currentUser]="currentUser"></app-messageStandard>
+  </div>
+</div>

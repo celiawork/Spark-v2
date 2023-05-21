@@ -1,0 +1,25 @@
+<div class="d-flex flex-column align-items-center" *ngIf="parking" >
+
+  <p>parking {{ parking.nom }}</p>
+  <p>place disponible {{parking.freeCapacity }}</p>
+
+  <div class="d-flex w-100 justify-content-around" *ngIf="boolean; else elseBlock" >
+    <button class="btn-cross c-btn-1-btn" (click)="close()">
+      {{messageNoOK}}
+    </button>
+
+    <button class="btn-check c-btn-1-btn" (click)="onLaunchNavigation()">
+      {{messageOK}}
+    </button>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="">
+      <button class="btn-check">{{messageOK }}
+        <div class="cercleIcon">
+          <img [src]="pathIconLeft" alt="check">
+        </div>
+      </button>
+    </div>
+  </ng-template>
+</div>

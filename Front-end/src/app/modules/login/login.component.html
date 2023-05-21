@@ -1,0 +1,58 @@
+<div class="col-12" style="padding:0 ;">
+	<div class="compo-login">
+		<h1 class="py-4 text-right mr-3"><span>S</span>park</h1>
+		<div class="form-login d-flex align-items-center justify-content-center">
+			<form class="form-signin" [formGroup]="form" (ngSubmit)="loginUser()" novalidate>
+				<h2 class="h3 mb-5 font-weight-normal text-center login100-form-title">Bienvenue</h2>
+				<div class="msg-error text-center">
+					{{errorMessage}}
+				</div>
+				<div class="wrap-input100 validate-input">
+					<input class="input100 form-control" type="email" name="email" placeholder="Email"
+						formControlName="username" email required>
+					<span class="focus-input100"></span>
+					<span class="symbol-input100"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+				</div>
+
+				<div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+					<div class="msg-error text-center" *ngIf="username?.errors?.['pattern']">
+						Email non valide
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<input class="input100 form-control" type="password" name="pass" placeholder="Mot de passe"
+						formControlName="password" required>
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+					</span>
+				</div>
+
+				<div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+					<div class="msg-error text-center" *ngIf="password?.errors?.['required']">
+						Le mot de passe doit est obligatoire
+					</div>
+					<div class="msg-error text-center" *ngIf="password?.errors?.['minlength']">
+						Le mot de passe doit contenir 8 caractères
+					</div>
+				</div>
+
+				<div class="container-c-btn-1-btn">
+					<button class="c-btn-1-btn" type="submit">
+						Se connecter
+					</button>
+				</div>
+				<p class="text-custom text-center mt-3" routerLink="/register">pas encore de compte ?</p>
+
+				<div class="text-divider my-5">OU</div>
+
+				<div class="connect-social d-flex justify-content-around mt-5">
+					<img class="img-fluid" src="/assets/ico/social/google.png" alt="">
+					<img class="img-fluid" src="/assets/ico/social/facebook.png" alt="">
+					<img class="img-fluid" src="/assets/ico/social/twitter.png" alt="">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

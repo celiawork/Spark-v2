@@ -1,0 +1,14 @@
+<div class="container-popup" *ngIf="showProfil">
+  <p class="title">PROFIL CONDUCTEUR</p>
+  <div class="px-3 container-txt pt-4" *ngIf="isLoggedIn">
+    <p class="username">{{currentUser.firstname}} </p>
+    <p>Vous avez une {{vehicle?.typeVehicle}} avec une consommation de {{vehicle?.consomation}}  L/100 km <br> c'est une {{vehicle?.energy?.name}}</p>
+    <p class="text-right"><span class="gain"> {{gain}}</span> spark</p>
+
+    <div class="mb-3" *ngIf="isLoggedIn">
+      <a href="/login" class="c-btn-1-btn w-75 mx-auto" (click)=handleLogout()>
+        Se déconnecter
+      </a>
+    </div>
+  </div>
+</div>
